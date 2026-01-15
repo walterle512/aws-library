@@ -24,11 +24,6 @@ export class NestjsAppsyncLambdaBooksStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
 
-    table.addGlobalSecondaryIndex({
-      indexName: 'ByPartitionId',
-      partitionKey: { name: 'parId', type: AttributeType.STRING },
-    })
-
     const graphqlApi = new GraphqlApi(this, 'GraphQLApi', {
       name: 'BooksApi',
       definition: Definition.fromFile(path.join(__dirname, './graphql/schema.graphql')),

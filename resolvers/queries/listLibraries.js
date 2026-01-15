@@ -6,7 +6,6 @@ export function request(ctx) {
 
   const request = {
     operation: 'Query',
-    index: 'ByPartitionId',
     query: {
       expression: '#parId = :parId',
       expressionNames: {
@@ -14,6 +13,7 @@ export function request(ctx) {
       },
       expressionValues: util.dynamodb.toMapValues({ ':parId': parId }),
     },
+    limit: 10,
   };
 
   if (nextToken) {

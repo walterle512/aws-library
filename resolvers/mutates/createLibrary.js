@@ -10,8 +10,8 @@ export function request(ctx) {
   } = ctx.arguments.library ?? ctx.args;
 
   const partitionId = `${userId}#user`;
-  const libraryId = `${util.autoId()}#library`;
   const now = util.time.nowISO8601();
+  const libraryId = `${now}#library`;
 
   const request = {
     operation: 'PutItem',

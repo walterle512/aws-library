@@ -12,8 +12,8 @@ export function request(ctx) {
     image,
   } = ctx.arguments.book;
 
-  const bookId = `${util.autoId()}#book`;
   const now = util.time.nowISO8601();
+  const bookId = `book#${now}`;
 
   const request = {
     operation: 'PutItem',
